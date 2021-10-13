@@ -37,6 +37,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CE4E4CD2716F0D700C5894A /* AllCities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AllCities;
+			sourceTree = "<group>";
+		};
 		1CF5E335270CDF7B00B91889 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +63,7 @@
 		1CF5E340270CDF7B00B91889 /* UIiosApps */ = {
 			isa = PBXGroup;
 			children = (
+				1CE4E4CD2716F0D700C5894A /* AllCities */,
 				1CF5E341270CDF7C00B91889 /* AppDelegate.swift */,
 				1CF5E343270CDF7C00B91889 /* SceneDelegate.swift */,
 				1CF5E345270CDF7C00B91889 /* LoginFormController.swift */,
