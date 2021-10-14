@@ -49,7 +49,7 @@ class LoginFormController: UIViewController {
 	// MARK: - Private Methods
 	private func checkUserData() -> Bool {
 		guard let login = loginTF.text, let password = passwordTF.text else { return false }
-		if login == "admin" && password == "123456" {
+		if (login == "admin" && password == "123456") || (login == "" && password == "") { // пока убрал проверку, чтобы не вводить каждый раз
 			return true
 		} else {
 			showLoginError()
