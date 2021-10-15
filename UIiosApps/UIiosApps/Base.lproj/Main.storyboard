@@ -233,6 +233,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Groups" id="eO9-60-sBW">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" landscapeImage="chevron.left" catalog="system" id="UZh-D8-TE1">
+                            <connections>
+                                <segue destination="ock-4b-6Dn" kind="unwind" unwindAction="logOutWithSegue:" id="Ixo-MY-Yan"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wX3-9u-ZCz">
                             <connections>
                                 <segue destination="E2a-yb-p5s" kind="show" identifier="addGroupsSeque" id="Dch-t5-yKl"/>
@@ -241,6 +246,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Drc-Li-JVP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ock-4b-6Dn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3485.507246376812" y="443.97321428571428"/>
         </scene>
@@ -294,12 +300,19 @@
                             <outlet property="delegate" destination="A9g-Y6-TOK" id="7rE-mo-jfF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Freinds" id="oHL-W9-fWh"/>
+                    <navigationItem key="navigationItem" title="Freinds" id="oHL-W9-fWh">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="7Jn-5B-gBq">
+                            <connections>
+                                <segue destination="Jgt-ng-WVh" kind="unwind" unwindAction="logOutWithSegue:" id="GGX-4q-6mW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="ZBU-TI-yk6" kind="show" identifier="FeindSegue" id="IS0-0i-oBm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdC-Zh-rwD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Jgt-ng-WVh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3559" y="-238"/>
         </scene>
@@ -437,7 +450,7 @@
                     <navigationItem key="navigationItem" id="h8Q-ML-gUM"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QKT-QV-iI8">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -452,6 +465,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <systemColor name="systemBackgroundColor">
