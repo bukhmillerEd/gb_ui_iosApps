@@ -95,6 +95,10 @@ class LoginFormController: UIViewController {
 		
 	}
 	
+	@IBAction func logOut(segue: UIStoryboardSegue) {
+		
+	}
+	
 }
 
 // MARK: - UIScrollViewDelegate
