@@ -9,11 +9,11 @@ import UIKit
 
 class FreindsCell: UITableViewCell {
 	
-	@IBOutlet weak var avatarImg: UIImageView!
 	@IBOutlet weak var nameLbl: UILabel!
+	@IBOutlet weak var avatar: AvatarCustomView!
 	
 	func configureCell(user: User) {
-		avatarImg.image = user.avatar
+		avatar.img = user.avatar
 		nameLbl.text = user.name
 	}
 }
