@@ -11,7 +11,7 @@ private let reuseIdentifier = "Cell"
 
 class FreindCollectionVC: UICollectionViewController {
 	var user: User?
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
