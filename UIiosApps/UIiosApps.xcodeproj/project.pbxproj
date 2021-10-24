@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2D410A271B17DD002367E2 /* AvatarCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */; };
 		1CE4E4CF27175F9B00C5894A /* FreindsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4CE27175F9B00C5894A /* FreindsTableVC.swift */; };
 		1CE4E4D12717602000C5894A /* FreindsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4D02717602000C5894A /* FreindsCell.swift */; };
 		1CE4E4D42717615A00C5894A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4D32717615A00C5894A /* User.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomView.swift; sourceTree = "<group>"; };
 		1CE4E4CE27175F9B00C5894A /* FreindsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindsTableVC.swift; sourceTree = "<group>"; };
 		1CE4E4D02717602000C5894A /* FreindsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindsCell.swift; sourceTree = "<group>"; };
 		1CE4E4D32717615A00C5894A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				1CF5E34A270CDF7F00B91889 /* Assets.xcassets */,
 				1CF5E34C270CDF7F00B91889 /* LaunchScreen.storyboard */,
 				1CF5E34F270CDF7F00B91889 /* Info.plist */,
+				1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */,
 			);
 			path = UIiosApps;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C2D410A271B17DD002367E2 /* AvatarCustomView.swift in Sources */,
 				1CE4E4D6271761DA00C5894A /* Group.swift in Sources */,
 				1CE4E4E3271834DF00C5894A /* AvailableGroupsCell.swift in Sources */,
 				1CF5E346270CDF7C00B91889 /* LoginFormController.swift in Sources */,
