@@ -47,7 +47,7 @@ class FreindsTableVC: UITableViewController {
 		if (segue.identifier == "FeindSegue") {
 			guard let indexPath = tableView.indexPathForSelectedRow else { return }
 			guard let destination = segue.destination as? FreindCollectionVC else { return }
-			let key = Array(users.keys)[indexPath.section]
+			let key = Array(users.keys).sorted(by: <)[indexPath.section]
 			guard let arrUsers = users[key] else { return }
 			destination.user = arrUsers[indexPath.row]
 		}

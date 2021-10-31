@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C2D410A271B17DD002367E2 /* AvatarCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */; };
+		1CCC21D0272D832600FEB2C4 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */; };
 		1CE4E4CF27175F9B00C5894A /* FreindsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4CE27175F9B00C5894A /* FreindsTableVC.swift */; };
 		1CE4E4D12717602000C5894A /* FreindsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4D02717602000C5894A /* FreindsCell.swift */; };
 		1CE4E4D42717615A00C5894A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4D32717615A00C5894A /* User.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomView.swift; sourceTree = "<group>"; };
+		1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		1CE4E4CE27175F9B00C5894A /* FreindsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindsTableVC.swift; sourceTree = "<group>"; };
 		1CE4E4D02717602000C5894A /* FreindsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindsCell.swift; sourceTree = "<group>"; };
 		1CE4E4D32717615A00C5894A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				1CF5E343270CDF7C00B91889 /* SceneDelegate.swift */,
 				1CF5E345270CDF7C00B91889 /* LoginFormController.swift */,
 				1CF5E347270CDF7C00B91889 /* Main.storyboard */,
+				1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */,
 				1CF5E34A270CDF7F00B91889 /* Assets.xcassets */,
 				1CF5E34C270CDF7F00B91889 /* LaunchScreen.storyboard */,
 				1CF5E34F270CDF7F00B91889 /* Info.plist */,
@@ -274,6 +277,7 @@
 				1CF11F082725FC9D008FB69F /* NewsLoaderService.swift in Sources */,
 				1CE4E4E02718276D00C5894A /* GroupsCell.swift in Sources */,
 				1CE4E4D42717615A00C5894A /* User.swift in Sources */,
+				1CCC21D0272D832600FEB2C4 /* LoadingIndicator.swift in Sources */,
 				1CE4E4D12717602000C5894A /* FreindsCell.swift in Sources */,
 				1CF11F012725F7FB008FB69F /* NewsTableVC.swift in Sources */,
 				1CF11F0C27267FD6008FB69F /* ImageNewsCollectionViewCell.swift in Sources */,

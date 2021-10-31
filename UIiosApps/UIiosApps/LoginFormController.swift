@@ -14,6 +14,8 @@ class LoginFormController: UIViewController {
 	@IBOutlet weak var passwordTF: UITextField!
 	@IBOutlet weak var scrollView: UIScrollView!
 	
+	private let li = LoadingIndicator(frame: CGRect.zero)
+	
 	// MARK: - Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -22,6 +24,10 @@ class LoginFormController: UIViewController {
 		// Присваиваем его UIScrollVIew
 		scrollView?.addGestureRecognizer(hideKeyboardGesture)
 		scrollView.delegate = self
+		
+		//Добавление индикатора загрузки
+		li.frame = view.bounds
+		view.addSubview(li)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +103,10 @@ class LoginFormController: UIViewController {
 	
 	@IBAction func logOut(segue: UIStoryboardSegue) {
 		
+	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		li.isHidden = true
 	}
 	
 }
