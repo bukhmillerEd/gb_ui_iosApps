@@ -34,10 +34,22 @@ class NewsLikeControl: UIControl {
 			countLokeLbl.textColor = .black
 		}
 		countLokeLbl.text = String(likesCount)
+		animate()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 			super.init(coder: aDecoder)
 			addGestureRecognizer(recognizer)
 	}
+	
+	private func animate() {
+		UIView.transition(with: countLokeLbl,
+											duration: 0.25,
+											options: .transitionFlipFromTop,
+											animations: {
+		})
+
+		
+	}
+	
 }
