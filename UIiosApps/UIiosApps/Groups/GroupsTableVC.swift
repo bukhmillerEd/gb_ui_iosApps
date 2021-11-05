@@ -9,28 +9,33 @@ import UIKit
 
 class GroupsTableVC: UITableViewController {
 	
+	@IBOutlet weak var searchBar: UISearchBar!
+	
 	private var groups: [Group] = []
+	private var filteredData: [Group]!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		getGroups()
+		searchBar.delegate = self
+		filteredData = groups
 	}
 	
 	// MARK: - Table view data source
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return groups.count
+		return filteredData.count
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsCell", for: indexPath) as! GroupsCell
-		cell.configureCell(group: groups[indexPath.row])
+		cell.configureCell(group: filteredData[indexPath.row])
 		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		// Если была нажата кнопка «Удалить»
 		if editingStyle == .delete {
-			groups.remove(at: indexPath.row)
+			filteredData.remove(at: indexPath.row)
 			// И удаляем строку из таблицы
 			tableView.deleteRows(at: [indexPath], with: .fade)
 		}
@@ -64,5 +69,15 @@ class GroupsTableVC: UITableViewController {
 		}
 	}
 	
+}
+
+// MARK: - SearchBar
+extension GroupsTableVC: UISearchBarDelegate {
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		filteredData = searchText.isEmpty ? groups : groups.filter({ group in
+			group.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+		})
+		tableView.reloadData()
+	}
 	
 }
