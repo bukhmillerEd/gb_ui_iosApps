@@ -12,7 +12,7 @@ class FreindCell: UICollectionViewCell {
 	@IBOutlet weak var counLike: UILabel!
 	
 	private var liked = false
-
+	
 	func configureCell(user: User){
 		avatarImg.image = user.avatar
 	}
@@ -32,8 +32,13 @@ class FreindCell: UICollectionViewCell {
 			counLike.textColor = .red
 			liked = true
 		}
-		
-		
+		animate()
 	}
 	
+	private func animate() {
+		UIView.transition(with: counLike,
+											duration: 0.25,
+											options: .transitionFlipFromTop,
+											animations: {})
+	}
 }
