@@ -650,7 +650,7 @@
         <!--Friends-->
         <scene sceneID="DBt-8r-d7Q">
             <objects>
-                <navigationController title="Friends" automaticallyAdjustsScrollViewInsets="NO" id="gyz-Tm-Awg" sceneMemberID="viewController">
+                <navigationController title="Friends" automaticallyAdjustsScrollViewInsets="NO" id="gyz-Tm-Awg" customClass="CustomNavigationController" customModule="UIiosApps" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="person.2" catalog="system" selectedImage="person.2" id="hse-ZR-aTZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vis-px-Z8q">
