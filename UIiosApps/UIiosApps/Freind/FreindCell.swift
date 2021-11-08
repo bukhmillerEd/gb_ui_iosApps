@@ -41,4 +41,5 @@ class FreindCell: UICollectionViewCell {
 											options: .transitionFlipFromTop,
 											animations: {})
 	}
+	
 }

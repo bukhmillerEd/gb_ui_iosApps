@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C2D410A271B17DD002367E2 /* AvatarCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */; };
+		1C8D59B227367C6900384C43 /* FotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D59B127367C6900384C43 /* FotosVC.swift */; };
 		1CCC21D0272D832600FEB2C4 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */; };
 		1CE4E4CF27175F9B00C5894A /* FreindsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4CE27175F9B00C5894A /* FreindsTableVC.swift */; };
 		1CE4E4D12717602000C5894A /* FreindsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4D02717602000C5894A /* FreindsCell.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomView.swift; sourceTree = "<group>"; };
+		1C8D59B127367C6900384C43 /* FotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosVC.swift; sourceTree = "<group>"; };
 		1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		1CE4E4CE27175F9B00C5894A /* FreindsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindsTableVC.swift; sourceTree = "<group>"; };
 		1CE4E4D02717602000C5894A /* FreindsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindsCell.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				1CE4E4D82718072B00C5894A /* FreindCollectionVC.swift */,
 				1CE4E4DA2718075500C5894A /* FreindCell.swift */,
+				1C8D59B127367C6900384C43 /* FotosVC.swift */,
 			);
 			path = Freind;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				1CE4E4D92718072B00C5894A /* FreindCollectionVC.swift in Sources */,
 				1CE4E4CF27175F9B00C5894A /* FreindsTableVC.swift in Sources */,
 				1CE4E4E52718351300C5894A /* AvailableGroupsTableVC.swift in Sources */,
+				1C8D59B227367C6900384C43 /* FotosVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
