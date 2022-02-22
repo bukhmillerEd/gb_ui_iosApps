@@ -28,4 +28,11 @@ class FreindCollectionVC: UICollectionViewController {
 		return cell
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if (segue.identifier == "idFotosSegue") {
+			guard let destination = segue.destination as? FotosVC else { return }
+			destination.user = user
+		}
+	}
+	
 }

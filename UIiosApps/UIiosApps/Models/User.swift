@@ -11,4 +11,5 @@ import UIKit
 struct User {
 	let name: String
 	let avatar: UIImage?
+	let fotos: [UIImage?]
 }

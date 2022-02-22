@@ -563,6 +563,7 @@
                                 <connections>
                                     <outlet property="avatarImg" destination="K7O-Vj-vch" id="AXj-KY-XeV"/>
                                     <outlet property="counLike" destination="IMS-2w-hl9" id="Q6m-2x-czQ"/>
+                                    <segue destination="6ZB-tO-hfu" kind="show" identifier="idFotosSegue" id="GyX-BD-MFh"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -576,6 +577,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EjH-rA-2X5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4313.04347826087" y="-238.39285714285714"/>
+        </scene>
+        <!--FotosVC-->
+        <scene sceneID="m2w-Tz-iSz">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="6ZB-tO-hfu" customClass="FotosVC" customModule="UIiosApps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pbf-aG-jVP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qpG-vA-RW0">
+                                <rect key="frame" x="20" y="20" width="374" height="685"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NJW-63-kHp"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NJW-63-kHp" firstAttribute="trailing" secondItem="qpG-vA-RW0" secondAttribute="trailing" constant="20" id="MUL-At-Z8B"/>
+                            <constraint firstItem="qpG-vA-RW0" firstAttribute="leading" secondItem="NJW-63-kHp" secondAttribute="leading" constant="20" id="bh8-PP-mQa"/>
+                            <constraint firstItem="qpG-vA-RW0" firstAttribute="top" secondItem="NJW-63-kHp" secondAttribute="top" constant="20" id="bpi-sW-bff"/>
+                            <constraint firstItem="NJW-63-kHp" firstAttribute="bottom" secondItem="qpG-vA-RW0" secondAttribute="bottom" constant="20" id="hkX-sC-Uvn"/>
+                            <constraint firstItem="qpG-vA-RW0" firstAttribute="centerY" secondItem="NJW-63-kHp" secondAttribute="centerY" id="z37-NK-pJA"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="uag-U0-Id3"/>
+                    <connections>
+                        <outlet property="fotoImg" destination="qpG-vA-RW0" id="wcJ-It-3K8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X74-Zw-CIN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5161" y="-238"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nJm-XN-tKt">

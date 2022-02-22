@@ -16,4 +16,5 @@ class FreindsCell: UITableViewCell {
 		avatar.img = user.avatar
 		nameLbl.text = user.name
 	}
+	
 }
