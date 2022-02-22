@@ -39,6 +39,7 @@
 		1CF5E349270CDF7C00B91889 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CF5E347270CDF7C00B91889 /* Main.storyboard */; };
 		1CF5E34B270CDF7F00B91889 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CF5E34A270CDF7F00B91889 /* Assets.xcassets */; };
 		1CF5E34E270CDF7F00B91889 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CF5E34C270CDF7F00B91889 /* LaunchScreen.storyboard */; };
+		1CF774CE27C58822008892EA /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF774CD27C58822008892EA /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		1CF5E34A270CDF7F00B91889 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CF5E34D270CDF7F00B91889 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CF5E34F270CDF7F00B91889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CF774CD27C58822008892EA /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				1CF11EFF2725F6FB008FB69F /* News */,
 				1CF5E343270CDF7C00B91889 /* SceneDelegate.swift */,
 				1CF5E345270CDF7C00B91889 /* LoginFormController.swift */,
+				1CF774CD27C58822008892EA /* Session.swift */,
 				1CF5E347270CDF7C00B91889 /* Main.storyboard */,
 				1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */,
 				1CF5E34A270CDF7F00B91889 /* Assets.xcassets */,
@@ -308,6 +311,7 @@
 				1CF11F142726D7AE008FB69F /* NewsLikeControl.swift in Sources */,
 				1CF11F0E272680D8008FB69F /* ImageNewsCollectionView.swift in Sources */,
 				1C8D59BB2739A9CB00384C43 /* CustomInteractiveTransition.swift in Sources */,
+				1CF774CE27C58822008892EA /* Session.swift in Sources */,
 				1CF11F052725F987008FB69F /* News.swift in Sources */,
 				1C8D59B92739436F00384C43 /* CustomNavigationController.swift in Sources */,
 				1CF5E344270CDF7C00B91889 /* SceneDelegate.swift in Sources */,
