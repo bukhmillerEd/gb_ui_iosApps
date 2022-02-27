@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		012EAC1A40463E208E630CA0 /* Pods_UIiosApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7EC139D639936BF9BFD1A3 /* Pods_UIiosApps.framework */; };
 		1C2D410A271B17DD002367E2 /* AvatarCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */; };
+		1C4261BF27CA88FE00CC5F88 /* VLLoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4261BE27CA88FE00CC5F88 /* VLLoginFormController.swift */; };
+		1C6FA52D27CB6A840048D8F8 /* VCAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6FA52C27CB6A840048D8F8 /* VCAPIService.swift */; };
 		1C8D59B227367C6900384C43 /* FotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D59B127367C6900384C43 /* FotosVC.swift */; };
 		1C8D59B427393BE000384C43 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D59B327393BE000384C43 /* CustomPushAnimator.swift */; };
 		1C8D59B72739415E00384C43 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D59B62739415E00384C43 /* CustomPopAnimator.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		08B199FFC26BDA22C606E713 /* Pods-UIiosApps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIiosApps.release.xcconfig"; path = "Target Support Files/Pods-UIiosApps/Pods-UIiosApps.release.xcconfig"; sourceTree = "<group>"; };
 		1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomView.swift; sourceTree = "<group>"; };
+		1C4261BE27CA88FE00CC5F88 /* VLLoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLLoginFormController.swift; sourceTree = "<group>"; };
+		1C6FA52C27CB6A840048D8F8 /* VCAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAPIService.swift; sourceTree = "<group>"; };
 		1C8D59B127367C6900384C43 /* FotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosVC.swift; sourceTree = "<group>"; };
 		1C8D59B327393BE000384C43 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
 		1C8D59B62739415E00384C43 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
@@ -218,11 +222,13 @@
 				1CF5E345270CDF7C00B91889 /* LoginFormController.swift */,
 				1CF774CD27C58822008892EA /* Session.swift */,
 				1CF5E347270CDF7C00B91889 /* Main.storyboard */,
+				1C4261BE27CA88FE00CC5F88 /* VLLoginFormController.swift */,
 				1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */,
 				1CF5E34A270CDF7F00B91889 /* Assets.xcassets */,
 				1CF5E34C270CDF7F00B91889 /* LaunchScreen.storyboard */,
 				1CF5E34F270CDF7F00B91889 /* Info.plist */,
 				1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */,
+				1C6FA52C27CB6A840048D8F8 /* VCAPIService.swift */,
 			);
 			path = UIiosApps;
 			sourceTree = "<group>";
@@ -241,7 +247,6 @@
 				EDEDED45161CC3C71FD5C459 /* Pods-UIiosApps.debug.xcconfig */,
 				08B199FFC26BDA22C606E713 /* Pods-UIiosApps.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -363,6 +368,7 @@
 				1CF11F1027269A40008FB69F /* ImagesCollectionViewLayout.swift in Sources */,
 				1C2D410A271B17DD002367E2 /* AvatarCustomView.swift in Sources */,
 				1CE4E4D6271761DA00C5894A /* Group.swift in Sources */,
+				1C4261BF27CA88FE00CC5F88 /* VLLoginFormController.swift in Sources */,
 				1C8D59B427393BE000384C43 /* CustomPushAnimator.swift in Sources */,
 				1CE4E4E3271834DF00C5894A /* AvailableGroupsCell.swift in Sources */,
 				1CF11F032725F82D008FB69F /* NewsTableCell.swift in Sources */,
@@ -376,6 +382,7 @@
 				1CCC21D0272D832600FEB2C4 /* LoadingIndicator.swift in Sources */,
 				1CE4E4D12717602000C5894A /* FreindsCell.swift in Sources */,
 				1CF11F012725F7FB008FB69F /* NewsTableVC.swift in Sources */,
+				1C6FA52D27CB6A840048D8F8 /* VCAPIService.swift in Sources */,
 				1CF11F0C27267FD6008FB69F /* ImageNewsCollectionViewCell.swift in Sources */,
 				1CF11F142726D7AE008FB69F /* NewsLikeControl.swift in Sources */,
 				1CF11F0E272680D8008FB69F /* ImageNewsCollectionView.swift in Sources */,
