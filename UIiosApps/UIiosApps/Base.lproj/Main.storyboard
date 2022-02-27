@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="841" y="192"/>
+            <point key="canvasLocation" x="810" y="-532"/>
         </scene>
         <!--Available Groups TableVC-->
         <scene sceneID="kYw-Gd-uiw">
@@ -610,6 +610,42 @@
             </objects>
             <point key="canvasLocation" x="5161" y="-238"/>
         </scene>
+        <!--Login Form Controller-->
+        <scene sceneID="da6-OD-KOu">
+            <objects>
+                <viewController id="eYx-gb-RaE" customClass="VLLoginFormController" customModule="UIiosApps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HkO-KP-7AJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ce6-ro-1Li">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gYp-hl-2wm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Ce6-ro-1Li" secondAttribute="bottom" id="Fh5-QJ-ls7"/>
+                            <constraint firstItem="Ce6-ro-1Li" firstAttribute="top" secondItem="HkO-KP-7AJ" secondAttribute="top" id="IgL-tT-dj6"/>
+                            <constraint firstItem="Ce6-ro-1Li" firstAttribute="leading" secondItem="gYp-hl-2wm" secondAttribute="leading" id="bGH-cL-r6S"/>
+                            <constraint firstAttribute="trailing" secondItem="Ce6-ro-1Li" secondAttribute="trailing" id="enf-44-Nu2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ppy-tE-gku"/>
+                    <connections>
+                        <outlet property="webview" destination="Ce6-ro-1Li" id="1w2-Fz-wHM"/>
+                        <segue destination="cQc-nz-Y9x" kind="show" identifier="segueToTabBar" id="jJ9-Rw-77i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5SN-Sh-Ebf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="851" y="192"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="nJm-XN-tKt">
             <objects>
@@ -620,7 +656,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VQm-BH-mxj"/>
+                        <segue destination="eYx-gb-RaE" kind="relationship" relationship="rootViewController" id="ear-Z9-6gV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mk3-mX-Rln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -708,6 +744,9 @@
             <point key="canvasLocation" x="2671" y="1110"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jJ9-Rw-77i"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
