@@ -49,6 +49,10 @@ class GroupsTableVC: UITableViewController {
 	}
 	
 	private func getGroups() {
+		VCAPIService.shared.loadGroups(userId: "2002700") { data in
+			print("Группы пользователя----------------------")
+			print(data)
+		}
 		groups.append(Group(name: "Geekbrains", image: UIImage(named: "gb")))
 		groups.append(Group(name: "Skillbox", image: UIImage(named: "sb")))
 		groups.append(Group(name: "Swiftbook", image: UIImage(named: "swiftbook")))
@@ -74,6 +78,12 @@ class GroupsTableVC: UITableViewController {
 // MARK: - SearchBar
 extension GroupsTableVC: UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		
+		VCAPIService.shared.searchGroups(searchString: searchText) { data in
+			print("Поиск грууппы----------------------")
+			print(data)
+		}
+		
 		filteredData = searchText.isEmpty ? groups : groups.filter({ group in
 			group.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
 		})
