@@ -1,4 +1,5 @@
 import UIKit
+import Alamofire
 
 final class FriendsLoaderService {
 	
@@ -27,6 +28,17 @@ final class FriendsLoaderService {
 	}
 	
 	private func loadFriends() -> [User] {
+		
+		VCAPIService.shared.loadFreinds() { data in
+			print("Друзья----------------------")
+			print(data)
+		}
+		
+		VCAPIService.shared.loadPhotos(ownerId: "2002700") { data in
+			print("Фотки друга------------------")
+			print(data)
+		}
+		
 		let defaultImg = UIImage(named: "DefaultAvatar")
 		return [
 			User(name: "Vladimir Putin",
