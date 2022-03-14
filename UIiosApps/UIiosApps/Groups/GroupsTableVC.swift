@@ -49,14 +49,22 @@ class GroupsTableVC: UITableViewController {
 	}
 	
 	private func getGroups() {
-		VCAPIService.shared.loadGroups(userId: "2002700") { data in
-			print("Группы пользователя----------------------")
-			print(data)
+		VCAPIService.shared.loadGroups(){ [weak self] data in
+			do {
+				let groupsResponse = try JSONDecoder().decode(GroupResponse.self, from: data as! Data)
+				self?.groups = groupsResponse.groups
+				self?.filteredData = groupsResponse.groups
+				DispatchQueue.main.sync {
+					self?.tableView.reloadData()
+				}
+			} catch {
+				debugPrint(error.localizedDescription)
+			}
 		}
-		groups.append(Group(name: "Geekbrains", image: UIImage(named: "gb")))
-		groups.append(Group(name: "Skillbox", image: UIImage(named: "sb")))
-		groups.append(Group(name: "Swiftbook", image: UIImage(named: "swiftbook")))
-		groups.append(Group(name: "Swift", image: UIImage(named: "swift")))
+//		groups.append(Group(name: "Geekbrains", image: UIImage(named: "gb")))
+//		groups.append(Group(name: "Skillbox", image: UIImage(named: "sb")))
+//		groups.append(Group(name: "Swiftbook", image: UIImage(named: "swiftbook")))
+//		groups.append(Group(name: "Swift", image: UIImage(named: "swift")))
 	}
 	
 	@IBAction func addGroups(segue: UIStoryboardSegue) {

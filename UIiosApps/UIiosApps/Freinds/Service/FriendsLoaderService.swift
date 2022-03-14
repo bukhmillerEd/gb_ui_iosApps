@@ -3,99 +3,38 @@ import Alamofire
 
 final class FriendsLoaderService {
 	
-	private var friends: [String:[User]] = [:]
-	
-	func getFriends() -> [String:[User]] {
-		let users = loadFriends()
-		for user in users {
-			// Получаем первый символ
-			var char: String
-			if let firstChar = user.name.first {
-				char = String(firstChar)
-				// добавляем в словарь
-				if friends[char] != nil {
-					friends[char]!.append(user)
-				} else {
-					friends[char] = [user]
+	func getFriends(completion: @escaping ( ([String:[User]]) -> Void) ) {
+		loadFriends() { users in
+			var friends: [String:[User]] = [:]
+			for user in users {
+				// Получаем первый символ
+				var char: String
+				if let firstChar = user.name.first {
+					char = String(firstChar)
+					// добавляем в словарь
+					if friends[char] != nil {
+						friends[char]!.append(user)
+					} else {
+						friends[char] = [user]
+					}
 				}
 			}
+			DispatchQueue.main.async {
+				completion(friends)
+			}
 		}
-		return friends
 	}
 	
-	func getFirstCharOfNmaeSorted() -> [String] {
-		return Array(friends.keys).sorted(by: <)
-	}
-	
-	private func loadFriends() -> [User] {
+	private func loadFriends(complitionHandler: @escaping([User]) -> Void) {
 		
 		VCAPIService.shared.loadFreinds() { data in
-			print("Друзья----------------------")
-			print(data)
+			do {
+				let freinds = try JSONDecoder().decode(UserContainer.self, from: data as! Data)
+				complitionHandler(freinds.users)
+			} catch {
+				debugPrint(error.localizedDescription)
+			}
 		}
-		
-		VCAPIService.shared.loadPhotos(ownerId: "2002700") { data in
-			print("Фотки друга------------------")
-			print(data)
-		}
-		
-		let defaultImg = UIImage(named: "DefaultAvatar")
-		return [
-			User(name: "Vladimir Putin",
-					 avatar: UIImage(named: "Putin") ?? defaultImg,
-					 fotos: [UIImage(named: "tesla1"),
-									 UIImage(named: "Mask"),
-									 UIImage(named: "Biden"),
-									 UIImage(named: "tesla2")]),
-			User(name: "Donald Trump",
-					 avatar: UIImage(named: "Trump") ?? defaultImg,
-					 fotos: [UIImage(named: "tesla1"),
-									 UIImage(named: "Mask"),
-									 UIImage(named: "Biden"),
-									 UIImage(named: "tesla2")]),
-			User(name: "Elon Mask",
-					 avatar: UIImage(named: "Mask") ?? defaultImg,
-					 fotos: [UIImage(named: "tesla1"),
-									 UIImage(named: "Mask"),
-									 UIImage(named: "Biden"),
-									 UIImage(named: "1")]),
-			User(name: "Joe Biden",
-					 avatar: UIImage(named: "Biden") ?? defaultImg,
-					 fotos: [UIImage(named: "tesla1"),
-									 UIImage(named: "Mask"),
-									 UIImage(named: "Biden"),
-									 UIImage(named: "tesla2")]),
-			User(name: "d",
-					 avatar: UIImage(named: "1") ?? defaultImg,
-					 fotos: [UIImage(named: "tesla1"),
-									 UIImage(named: "Mask"),
-									 UIImage(named: "Biden"),
-									 UIImage(named: "tesla2")]),
-			User(name: "Andrey",
-					 avatar: UIImage(named: "1") ?? defaultImg,
-					 fotos: [UIImage(named: "tesla1"),
-									 UIImage(named: "Mask"),
-									 UIImage(named: "Biden"),
-									 UIImage(named: "tesla2")]),
-			User(name: "Alex",
-					 avatar: UIImage(named: "1") ?? defaultImg,
-					 fotos: [UIImage(named: "tesla1"),
-									 UIImage(named: "Mask"),
-									 UIImage(named: "Biden"),
-									 UIImage(named: "tesla2")]),
-			User(name: "Artem",
-					 avatar: UIImage(named: "1") ?? defaultImg,
-					 fotos: [UIImage(named: "tesla1"),
-									 UIImage(named: "Mask"),
-									 UIImage(named: "Biden"),
-									 UIImage(named: "tesla2")]),
-			User(name: "Irina",
-					 avatar: UIImage(named: "1") ?? defaultImg,
-					 fotos: [UIImage(named: "tesla1"),
-									 UIImage(named: "Mask"),
-									 UIImage(named: "Biden"),
-									 UIImage(named: "tesla2")])
-		]
 	}
 	
 }

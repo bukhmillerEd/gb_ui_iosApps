@@ -54,9 +54,11 @@ class FreindsTableVC: UITableViewController {
 	}
 	
 	private func getUsers() {
-		let friendsLoaderService = FriendsLoaderService()
-		users = friendsLoaderService.getFriends()
-		firstCharOfNmaeSorted = friendsLoaderService.getFirstCharOfNmaeSorted()
+		FriendsLoaderService().getFriends(completion: {[weak self] users in
+			self?.users = users
+			self?.firstCharOfNmaeSorted = Array(users.keys).sorted(by: <)
+			self?.tableView.reloadData()
+		})
 	}
 	
 }
