@@ -10,6 +10,7 @@
 		012EAC1A40463E208E630CA0 /* Pods_UIiosApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7EC139D639936BF9BFD1A3 /* Pods_UIiosApps.framework */; };
 		1C2D410A271B17DD002367E2 /* AvatarCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */; };
 		1C4261BF27CA88FE00CC5F88 /* VLLoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4261BE27CA88FE00CC5F88 /* VLLoginFormController.swift */; };
+		1C6E471327DF5C7800A9189A /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E471227DF5C7800A9189A /* PhotoResponse.swift */; };
 		1C6FA52D27CB6A840048D8F8 /* VCAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6FA52C27CB6A840048D8F8 /* VCAPIService.swift */; };
 		1C8D59B227367C6900384C43 /* FotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D59B127367C6900384C43 /* FotosVC.swift */; };
 		1C8D59B427393BE000384C43 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D59B327393BE000384C43 /* CustomPushAnimator.swift */; };
@@ -49,6 +50,7 @@
 		08B199FFC26BDA22C606E713 /* Pods-UIiosApps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIiosApps.release.xcconfig"; path = "Target Support Files/Pods-UIiosApps/Pods-UIiosApps.release.xcconfig"; sourceTree = "<group>"; };
 		1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCustomView.swift; sourceTree = "<group>"; };
 		1C4261BE27CA88FE00CC5F88 /* VLLoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLLoginFormController.swift; sourceTree = "<group>"; };
+		1C6E471227DF5C7800A9189A /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		1C6FA52C27CB6A840048D8F8 /* VCAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAPIService.swift; sourceTree = "<group>"; };
 		1C8D59B127367C6900384C43 /* FotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotosVC.swift; sourceTree = "<group>"; };
 		1C8D59B327393BE000384C43 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				1CE4E4D32717615A00C5894A /* User.swift */,
 				1CE4E4D5271761DA00C5894A /* Group.swift */,
 				1CF11F042725F987008FB69F /* News.swift */,
+				1C6E471227DF5C7800A9189A /* PhotoResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				1C8D59B92739436F00384C43 /* CustomNavigationController.swift in Sources */,
 				1CF5E344270CDF7C00B91889 /* SceneDelegate.swift in Sources */,
 				1C8D59B72739415E00384C43 /* CustomPopAnimator.swift in Sources */,
+				1C6E471327DF5C7800A9189A /* PhotoResponse.swift in Sources */,
 				1CE4E4DE2718274B00C5894A /* GroupsTableVC.swift in Sources */,
 				1CE4E4D92718072B00C5894A /* FreindCollectionVC.swift in Sources */,
 				1CE4E4CF27175F9B00C5894A /* FreindsTableVC.swift in Sources */,

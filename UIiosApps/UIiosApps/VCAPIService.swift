@@ -18,6 +18,7 @@ extension Request {
 		case photos = "/method/photos.getAll"
 		case groups = "/method/groups.get"
 		case groupsSearch = "/method/groups.search"
+		case photosById = "/method/photos.getById"
 	}
 	
 	enum Host: String {
@@ -28,7 +29,7 @@ extension Request {
 struct Request {
 	let host: Host = .main
 	let scheme: Scheme = .https
-	var params: [String:String] = [
+	var params: [String: String] = [
 		"access_token" : Session.shared.token ?? "",
 		"v":"5.131"
 	]
@@ -49,9 +50,9 @@ class VCAPIService {
 	static let shared = VCAPIService()
 	
 	private func load(request: Request, complition: @escaping (Any?) -> Void) {
-		
-		guard let url = request.url else { return }
-		
+		guard let url = request.url else {
+			return
+		}
 		let task = URLSession.shared.dataTask(with: url) { data, responce, error in
 			if let error = error {
 				print(error.localizedDescription)
@@ -60,16 +61,14 @@ class VCAPIService {
 			guard let data = data else {
 				return
 			}
-			let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-
-			complition(json)
-
+			complition(data)
 		}
 		task.resume()
 	}
 	
 	func loadFreinds(complition: @escaping (Any?) -> Void) {
-		let req = Request(path: .freinds)
+		var req = Request(path: .freinds)
+		req.params["fields"] = "photo_100"
 		load(request: req, complition: complition )
 	}
 	
@@ -79,9 +78,10 @@ class VCAPIService {
 		load(request: req, complition: complition )
 	}
 	
-	func loadGroups(userId: String, complition: @escaping (Any?) -> Void) {
+	func loadGroups(complition: @escaping (Any?) -> Void) {
 		var req = Request(path: .groups)
-		req.params["user_id"] = userId
+		req.params["fields"] = "photo_100"
+		req.params["extended"] = "1"
 		load(request: req, complition: complition )
 	}
 	
@@ -91,4 +91,9 @@ class VCAPIService {
 		load(request: req, complition: complition )
 	}
 	
+	func loadPhotos(id: String, complition: @escaping (Any?) -> Void) {
+		var req = Request(path: .photosById)
+		req.params["photos"] = id
+		load(request: req, complition: complition)
+	}
 }
