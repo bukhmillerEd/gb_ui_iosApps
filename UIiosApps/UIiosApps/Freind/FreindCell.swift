@@ -13,8 +13,9 @@ class FreindCell: UICollectionViewCell {
 	
 	private var liked = false
 	
-	func configureCell(user: User){
-		avatarImg.image = user.avatar
+	func configureCell(photo: UIImage){
+		avatarImg.image = photo
+		
 	}
 	
 	@IBAction func likePressed(_ sender: UIButton) {

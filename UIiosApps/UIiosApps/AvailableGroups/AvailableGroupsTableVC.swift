@@ -30,9 +30,9 @@ class AvailableGroupsTableVC: UITableViewController {
 	}
 
 	private func getGroups() {
-		add(Group(name: "Udemy", image: UIImage(named: "udemy")))
-		add(Group(name: "Специалист", image: UIImage(named: "spec")))
-		add(Group(name: "Coursera", image: UIImage(named: "coursera")))
+		//add(Group(name: "Udemy", image: UIImage(named: "udemy")))
+		//add(Group(name: "Специалист", image: UIImage(named: "spec")))
+		//add(Group(name: "Coursera", image: UIImage(named: "coursera")))
 	}
 	
 	private func add(_ group: Group) {
