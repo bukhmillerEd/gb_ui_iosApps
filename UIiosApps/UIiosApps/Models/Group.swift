@@ -7,9 +7,11 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-struct Group: Decodable {
-	let name: String
+//struct Group: Decodable {
+class Group: Object {
+	@objc dynamic let name: String
 	var image: UIImage? = nil
 	
 	enum CodingKeys: String, CodingKey {
@@ -29,20 +31,20 @@ struct Group: Decodable {
 	}
 }
 
-class GroupResponse: Decodable {
-	var groups: [Group]
-	
-	enum CodingKeys: String, CodingKey {
-		case response
-		
-		enum GroupKeys: String, CodingKey {
-			case group = "items"
-		}
-	}
-	
-	required init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-		let response = try container.nestedContainer(keyedBy: CodingKeys.GroupKeys.self, forKey: .response)
-		self.groups = try response.decode([Group].self, forKey: .group)
-	}
-}
+//class GroupResponse: Decodable {
+//	var groups: [Group]
+//	
+//	enum CodingKeys: String, CodingKey {
+//		case response
+//		
+//		enum GroupKeys: String, CodingKey {
+//			case group = "items"
+//		}
+//	}
+//	
+//	required init(from decoder: Decoder) throws {
+//		let container = try decoder.container(keyedBy: CodingKeys.self)
+//		let response = try container.nestedContainer(keyedBy: CodingKeys.GroupKeys.self, forKey: .response)
+//		self.groups = try response.decode([Group].self, forKey: .group)
+//	}
+//}

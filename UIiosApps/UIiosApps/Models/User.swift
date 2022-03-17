@@ -7,28 +7,30 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-class UserContainer: Decodable {
-	var users: [User]
-	
-	enum CodingKeys: String, CodingKey {
-		case response
-		
-		enum UsersKeys: String, CodingKey {
-			case users = "items"
-		}
-	}
-	
-	required init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-		let response = try container.nestedContainer(keyedBy: CodingKeys.UsersKeys.self, forKey: .response)
-		self.users = try response.decode([User].self, forKey: .users)
-	}
-}
+//class UserContainer: Decodable {
+//	var users: [User]
+//
+//	enum CodingKeys: String, CodingKey {
+//		case response
+//
+//		enum UsersKeys: String, CodingKey {
+//			case users = "items"
+//		}
+//	}
+//
+//	required init(from decoder: Decoder) throws {
+//		let container = try decoder.container(keyedBy: CodingKeys.self)
+//		let response = try container.nestedContainer(keyedBy: CodingKeys.UsersKeys.self, forKey: .response)
+//		self.users = try response.decode([User].self, forKey: .users)
+//	}
+//}
 
-class User: Decodable {
-	var id: Int
-	var name: String
+//class User: Decodable {
+class User: Object {
+	@objc dynamic var id: Int
+	@objc dynamic var name: String
 	var avatar: UIImage? = nil
 	var fotos: [UIImage?] = []
 	

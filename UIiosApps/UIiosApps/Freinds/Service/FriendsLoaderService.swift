@@ -27,14 +27,14 @@ final class FriendsLoaderService {
 	
 	private func loadFriends(complitionHandler: @escaping([User]) -> Void) {
 		
-		VCAPIService.shared.loadFreinds() { data in
-			do {
-				let freinds = try JSONDecoder().decode(UserContainer.self, from: data as! Data)
-				complitionHandler(freinds.users)
-			} catch {
-				debugPrint(error.localizedDescription)
-			}
-		}
+//		VCAPIService.shared.loadFreinds() { data in
+//			do {
+//				let freinds = try JSONDecoder().decode(UserContainer.self, from: data as! Data)
+//				complitionHandler(freinds.users)
+//			} catch {
+//				debugPrint(error.localizedDescription)
+//			}
+//		}
 	}
 	
 }
