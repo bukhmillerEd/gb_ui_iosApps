@@ -31,6 +31,7 @@ import RealmSwift
 class User: Object {
 	@objc dynamic var id: Int
 	@objc dynamic var name: String
+
 	var avatar: UIImage? = nil
 	var fotos: [UIImage?] = []
 	

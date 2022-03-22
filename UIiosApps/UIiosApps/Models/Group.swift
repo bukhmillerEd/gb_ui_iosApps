@@ -7,11 +7,13 @@
 
 import Foundation
 import UIKit
+
 import RealmSwift
 
 //struct Group: Decodable {
 class Group: Object {
 	@objc dynamic let name: String
+
 	var image: UIImage? = nil
 	
 	enum CodingKeys: String, CodingKey {
@@ -31,6 +33,7 @@ class Group: Object {
 	}
 }
 
+
 //class GroupResponse: Decodable {
 //	var groups: [Group]
 //	
@@ -48,3 +51,4 @@ class Group: Object {
 //		self.groups = try response.decode([Group].self, forKey: .group)
 //	}
 //}
+

@@ -49,6 +49,7 @@ class GroupsTableVC: UITableViewController {
 	}
 	
 	private func getGroups() {
+
 //		VCAPIService.shared.loadGroups(){ [weak self] data in
 //			do {
 //				let groupsResponse = try JSONDecoder().decode(GroupResponse.self, from: data as! Data)
@@ -61,6 +62,7 @@ class GroupsTableVC: UITableViewController {
 //				debugPrint(error.localizedDescription)
 //			}
 //		}
+
 	}
 	
 	@IBAction func addGroups(segue: UIStoryboardSegue) {
