@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GroupsTableVC: UITableViewController {
 	
@@ -49,20 +50,39 @@ class GroupsTableVC: UITableViewController {
 	}
 	
 	private func getGroups() {
-
-//		VCAPIService.shared.loadGroups(){ [weak self] data in
-//			do {
-//				let groupsResponse = try JSONDecoder().decode(GroupResponse.self, from: data as! Data)
-//				self?.groups = groupsResponse.groups
-//				self?.filteredData = groupsResponse.groups
-//				DispatchQueue.main.sync {
-//					self?.tableView.reloadData()
-//				}
-//			} catch {
-//				debugPrint(error.localizedDescription)
-//			}
-//		}
-
+		
+		VCAPIService.shared.loadGroups(){ [weak self] data in
+			do {
+				let groupsResponse = try JSONDecoder().decode(GroupResponse.self, from: data as! Data)
+				let groups = groupsResponse.groups
+				
+				// Сохранение групп в Realm
+				do {
+					let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+					let realm = try Realm(configuration: config)
+					print(realm.configuration.fileURL)
+					realm.beginWrite()
+					realm.add(groups, update: .modified)
+					try realm.commitWrite()
+				} catch {
+					debugPrint(error.localizedDescription)
+				}
+				
+				// читаем данные
+				DispatchQueue.main.sync {
+					let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+					guard let realm = try? Realm(configuration: config) else { return }
+					let groups = Array(realm.objects(Group.self))
+					
+					self?.groups = groups
+					self?.filteredData = groups
+					self?.tableView.reloadData()
+				}
+			} catch {
+				debugPrint(error.localizedDescription)
+			}
+		}
+		
 	}
 	
 	@IBAction func addGroups(segue: UIStoryboardSegue) {

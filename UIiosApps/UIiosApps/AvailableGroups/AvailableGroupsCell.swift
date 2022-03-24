@@ -13,7 +13,7 @@ class AvailableGroupsCell: UITableViewCell {
 	@IBOutlet weak var nameLbl: UILabel!
 	
 	func configureCell(group: Group){
-		avatarImg.image = group.image
+//		avatarImg.image = group.image
 		nameLbl.text = group.name
 	}
 

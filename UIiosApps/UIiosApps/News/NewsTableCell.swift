@@ -23,7 +23,7 @@ class NewsTableCell: UITableViewCell, UICollectionViewDelegate {
 	}
 	
 	func configure(news: News) {
-		imageAuthor.img = news.author.avatar
+		//imageAuthor.img = news.author.avatar
 		authorLbl.text = news.author.name
 		dateLbl.text = news.date
 		textTV.text = news.text

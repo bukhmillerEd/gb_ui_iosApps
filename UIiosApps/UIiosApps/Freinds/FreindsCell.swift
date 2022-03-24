@@ -13,8 +13,18 @@ class FreindsCell: UITableViewCell {
 	@IBOutlet weak var avatar: AvatarCustomView!
 	
 	func configureCell(user: User) {
-		avatar.img = user.avatar
+		if let urlAvatar = URL(string: user.urlAvatar) {
+			do {
+				avatar.img = UIImage(data: try Data(contentsOf: urlAvatar))
+			} catch {
+				debugPrint(error.localizedDescription)
+			}
+		}
 		nameLbl.text = user.name
+	}
+	
+	override func prepareForReuse() {
+		avatar.img = nil
 	}
 	
 }

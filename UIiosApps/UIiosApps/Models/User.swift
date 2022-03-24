@@ -9,30 +9,30 @@ import Foundation
 import UIKit
 import RealmSwift
 
-//class UserContainer: Decodable {
-//	var users: [User]
-//
-//	enum CodingKeys: String, CodingKey {
-//		case response
-//
-//		enum UsersKeys: String, CodingKey {
-//			case users = "items"
-//		}
-//	}
-//
-//	required init(from decoder: Decoder) throws {
-//		let container = try decoder.container(keyedBy: CodingKeys.self)
-//		let response = try container.nestedContainer(keyedBy: CodingKeys.UsersKeys.self, forKey: .response)
-//		self.users = try response.decode([User].self, forKey: .users)
-//	}
-//}
+class UserContainer: Decodable {
+	var users: [User]
 
-//class User: Decodable {
-class User: Object {
-	@objc dynamic var id: Int
-	@objc dynamic var name: String
+	enum CodingKeys: String, CodingKey {
+		case response
 
-	var avatar: UIImage? = nil
+		enum UsersKeys: String, CodingKey {
+			case users = "items"
+		}
+	}
+
+	required init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		let response = try container.nestedContainer(keyedBy: CodingKeys.UsersKeys.self, forKey: .response)
+		self.users = try response.decode([User].self, forKey: .users)
+	}
+}
+
+class User: Object, Decodable {
+	@objc dynamic var id: Int = 0
+	@objc dynamic var name: String = ""
+	@objc dynamic var urlAvatar: String = ""
+
+	//var avatar: UIImage? = nil
 	var fotos: [UIImage?] = []
 	
 	enum CodingKeys: String, CodingKey {
@@ -40,6 +40,10 @@ class User: Object {
 		case lastName = "last_name"
 		case avatar = "photo_100"
 		case id
+	}
+	
+	override init() {
+		super.init()
 	}
 	
 	required init(from decoder: Decoder) throws {
@@ -51,8 +55,14 @@ class User: Object {
 		let lastName = try container.decode(String.self, forKey: .lastName)
 		self.name = firstName + " " + lastName
 		
-		let urlAvatar = try container.decode(URL.self, forKey: .avatar)
-		self.avatar = UIImage(data: try Data(contentsOf: urlAvatar))
+		//let urlAvatar = try container.decode(URL.self, forKey: .avatar)
+		//self.avatar = UIImage(data: try Data(contentsOf: urlAvatar))
+		let urlAvatar = try container.decode(String.self, forKey: .avatar)
+		self.urlAvatar = urlAvatar
+	}
+	
+	override class func primaryKey() -> String? {
+		return "id"
 	}
 	
 }
