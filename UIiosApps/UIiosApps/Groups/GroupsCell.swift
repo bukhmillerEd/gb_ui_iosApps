@@ -12,7 +12,9 @@ class GroupsCell: UITableViewCell {
 	@IBOutlet weak var nameLbl: UILabel!
 	
 	func configureCell(group: Group){
-		avatarImg.image = group.image
+		if let url = URL(string: group.urlImage),  let data = try? Data(contentsOf: url) {
+			avatarImg.image = UIImage(data: data)
+		}
 		nameLbl.text = group.name
 	}
 	

@@ -10,7 +10,7 @@ import CoreGraphics
 
 @IBDesignable class AvatarCustomView: UIView {
 	
-	var img: UIImage?
+	var img: UIImage? = nil
 	
 	@IBInspectable var radius: CGFloat = 25 {
 		didSet {
