@@ -12,40 +12,67 @@ class GroupsTableVC: UITableViewController {
 	
 	@IBOutlet weak var searchBar: UISearchBar!
 	
-	private var groups: [Group] = []
-	private var filteredData: [Group]!
+	var token: NotificationToken?
+	var groups: Results<Group>?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		getGroups()
 		searchBar.delegate = self
-		filteredData = groups
+		getGroupsFromRealm()
 	}
 	
 	// MARK: - Table view data source
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return filteredData.count
+		return groups?.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsCell", for: indexPath) as! GroupsCell
-		cell.configureCell(group: filteredData[indexPath.row])
+		if let group = groups?[indexPath.row]  {
+			cell.configureCell(group: group)
+		}
 		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		// Если была нажата кнопка «Удалить»
 		if editingStyle == .delete {
-			filteredData.remove(at: indexPath.row)
-			// И удаляем строку из таблицы
-			tableView.deleteRows(at: [indexPath], with: .fade)
+			guard let realm = try? Realm(), let group = groups?[indexPath.row] else { return }
+			do {
+				realm.beginWrite()
+				realm.delete(group)
+				try realm.commitWrite()
+			} catch {
+				debugPrint(error)
+			}
 		}
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "addGroupsSeque" {
 			guard let dist = segue.destination as? AvailableGroupsTableVC else { return }
-			dist.addedGroups = groups
+			//dist.addedGroups = groups
+		}
+	}
+	
+	private func getGroupsFromRealm() {
+		guard let realm = try? Realm() else { return }
+		groups = realm.objects(Group.self)
+		token = groups?.observe(){ [weak self] (changes: RealmCollectionChange) in
+			guard let tableView = self?.tableView else { return }
+			switch changes {
+			case .initial:
+				tableView.reloadData()
+			case .update(_, let deletions, let insertions, let modifications):
+				tableView.beginUpdates()
+				tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+				tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
+				tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+				tableView.endUpdates()
+			case .error(let error):
+				fatalError("\(error)")
+			}
 		}
 	}
 	
@@ -67,17 +94,6 @@ class GroupsTableVC: UITableViewController {
 				} catch {
 					debugPrint(error.localizedDescription)
 				}
-				
-				// читаем данные
-				DispatchQueue.main.sync {
-					let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
-					guard let realm = try? Realm(configuration: config) else { return }
-					let groups = Array(realm.objects(Group.self))
-					
-					self?.groups = groups
-					self?.filteredData = groups
-					self?.tableView.reloadData()
-				}
 			} catch {
 				debugPrint(error.localizedDescription)
 			}
@@ -86,17 +102,17 @@ class GroupsTableVC: UITableViewController {
 	}
 	
 	@IBAction func addGroups(segue: UIStoryboardSegue) {
-		// Проверяем идентификатор, чтобы убедиться, что это нужный переход
-		if segue.identifier == "addGroups" {
-			// Получаем ссылку на контроллер, с которого осуществлен переход
-			let availableGroupsTableVC = segue.source as! AvailableGroupsTableVC
-			// Получаем индекс выделенной ячейки
-			if let indexPath = availableGroupsTableVC.tableView.indexPathForSelectedRow {
-				let group = availableGroupsTableVC.groups[indexPath.row]
-				groups.append(group)
-				tableView.reloadData()
-			}
-		}
+//		// Проверяем идентификатор, чтобы убедиться, что это нужный переход
+//		if segue.identifier == "addGroups" {
+//			// Получаем ссылку на контроллер, с которого осуществлен переход
+//			let availableGroupsTableVC = segue.source as! AvailableGroupsTableVC
+//			// Получаем индекс выделенной ячейки
+//			if let indexPath = availableGroupsTableVC.tableView.indexPathForSelectedRow {
+//				let group = availableGroupsTableVC.groups[indexPath.row]
+//				groups.append(group)
+//				tableView.reloadData()
+//			}
+//		}
 	}
 	
 }
@@ -104,16 +120,14 @@ class GroupsTableVC: UITableViewController {
 // MARK: - SearchBar
 extension GroupsTableVC: UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		
-		VCAPIService.shared.searchGroups(searchString: searchText) { data in
-			print("Поиск грууппы----------------------")
-			print(data)
+		guard let realm = try? Realm() else { return }
+		if searchText.isEmpty{
+			groups = realm.objects(Group.self)
+		} else {
+			groups = realm.objects(Group.self).filter("name BEGINSWITH[c] '\(searchText)'")
 		}
-		
-		filteredData = searchText.isEmpty ? groups : groups.filter({ group in
-			group.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-		})
 		tableView.reloadData()
 	}
 	
 }
+
