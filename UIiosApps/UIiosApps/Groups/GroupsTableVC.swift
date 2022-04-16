@@ -7,10 +7,13 @@
 
 import UIKit
 import RealmSwift
+import FirebaseDatabase
 
 class GroupsTableVC: UITableViewController {
 	
 	@IBOutlet weak var searchBar: UISearchBar!
+	
+	var ref: DatabaseReference?
 	
 	var token: NotificationToken?
 	var groups: Results<Group>?
@@ -83,6 +86,9 @@ class GroupsTableVC: UITableViewController {
 				let groupsResponse = try JSONDecoder().decode(GroupResponse.self, from: data as! Data)
 				let groups = groupsResponse.groups
 				
+				// Сохранение групп в Firebase
+				self?.saveGroupsToFB(groups: groups)
+				
 				// Сохранение групп в Realm
 				do {
 					let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
@@ -113,6 +119,11 @@ class GroupsTableVC: UITableViewController {
 //				tableView.reloadData()
 //			}
 //		}
+	}
+	
+	private func saveGroupsToFB(groups: [Group]) {
+		ref = Database.database().reference()
+		ref?.child("IDUsers/").updateChildValues(["Groups": groups.map({$0.name})])
 	}
 	
 }

@@ -8,8 +8,11 @@
 import Foundation
 import UIKit
 import WebKit
+import FirebaseDatabase
 
 class VLLoginFormController: UIViewController {
+	var ref: DatabaseReference?
+	
 	@IBOutlet weak var webview: WKWebView! {
 		didSet {
 			webview.navigationDelegate = self
@@ -62,6 +65,10 @@ extension VLLoginFormController: WKNavigationDelegate {
 		let token = params["access_token"]
 		
 		Session.shared.token = token
+		
+		// сохраняем в юзера в Firebase
+		ref = Database.database().reference()
+		ref?.child("IDUsers").setValue(token)
 		
 		performSegue(withIdentifier: "segueToTabBar", sender: nil)
 		
