@@ -6,6 +6,10 @@ target 'UIiosApps' do
   use_frameworks!
   pod 'Alamofire'
   pod 'RealmSwift' 
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Database'
   
   # Pods for UIiosApps
 

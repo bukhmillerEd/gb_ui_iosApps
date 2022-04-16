@@ -17,6 +17,7 @@
 		1C8D59B72739415E00384C43 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D59B62739415E00384C43 /* CustomPopAnimator.swift */; };
 		1C8D59B92739436F00384C43 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D59B82739436F00384C43 /* CustomNavigationController.swift */; };
 		1C8D59BB2739A9CB00384C43 /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D59BA2739A9CB00384C43 /* CustomInteractiveTransition.swift */; };
+		1CA6B5E1280A0A760003CEE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CA6B5E0280A0A750003CEE3 /* GoogleService-Info.plist */; };
 		1CCC21D0272D832600FEB2C4 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */; };
 		1CE4E4CF27175F9B00C5894A /* FreindsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4CE27175F9B00C5894A /* FreindsTableVC.swift */; };
 		1CE4E4D12717602000C5894A /* FreindsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE4E4D02717602000C5894A /* FreindsCell.swift */; };
@@ -57,6 +58,7 @@
 		1C8D59B62739415E00384C43 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
 		1C8D59B82739436F00384C43 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		1C8D59BA2739A9CB00384C43 /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
+		1CA6B5E0280A0A750003CEE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		1CE4E4CE27175F9B00C5894A /* FreindsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindsTableVC.swift; sourceTree = "<group>"; };
 		1CE4E4D02717602000C5894A /* FreindsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreindsCell.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				1CCC21CF272D832600FEB2C4 /* LoadingIndicator.swift */,
 				1CF5E34A270CDF7F00B91889 /* Assets.xcassets */,
 				1CF5E34C270CDF7F00B91889 /* LaunchScreen.storyboard */,
+				1CA6B5E0280A0A750003CEE3 /* GoogleService-Info.plist */,
 				1CF5E34F270CDF7F00B91889 /* Info.plist */,
 				1C2D4109271B17DD002367E2 /* AvatarCustomView.swift */,
 				1C6FA52C27CB6A840048D8F8 /* VCAPIService.swift */,
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CF5E34E270CDF7F00B91889 /* LaunchScreen.storyboard in Resources */,
+				1CA6B5E1280A0A760003CEE3 /* GoogleService-Info.plist in Resources */,
 				1CF5E34B270CDF7F00B91889 /* Assets.xcassets in Resources */,
 				1CF5E349270CDF7C00B91889 /* Main.storyboard in Resources */,
 			);
